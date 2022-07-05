@@ -2,8 +2,7 @@
 **[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的mirai(Tencent-QQ)实现。**
 
 ## 安装
-  1. 在[Releases页面](https://github.com/MeowCat-Studio/mirai-message-source/releases) 下载相应操作系统及CPU架构的jar归档文件。
-  > 文件命名规则：mirai-<架构>-<操作系统>.jar
+  1. 在[Releases页面](https://github.com/MeowCat-Studio/mirai-message-source/releases) 下载jar归档文件。
   2. 移动至mirai-console(或是mcl)同目录的plugins文件夹下。
 ## 简单入门
   1. 运行一次MCL并关闭
@@ -54,4 +53,4 @@
   > 在 **QQ 群聊**(而不是 Mirai 控制台)中发送这些指令.
 ## 注意事项
   1. 现在信使**不再依赖**前置插件[chat-command]
-  2. 对于Winodws, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999)
+  2. 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 注意系统位数

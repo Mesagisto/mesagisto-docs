@@ -49,4 +49,4 @@
       - "Plugin:Slimefun, Class:.*, EventPriority:LOWEST"
       - "Plugin:bukkit-message-source, Class:.*, EventPriority:LOWEST"
   ```
-
+2. 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999)

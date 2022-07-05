@@ -26,12 +26,11 @@
     address: nats://itsusinn.site:4222
   # 加密设置
   cipher:
-    # 是否启用加密
-    enable: true
     # 加密用使用的密钥 需保证各端相同
     key: my-key
-    # 是否拒绝未经加密的消息
-    refuse-plain: true
   ```
 
 5. 启动forge服务端。
+
+## 注意事项
+1. 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999)

@@ -54,3 +54,4 @@
   > 在 **QQ 群聊**(而不是 Mirai 控制台)中发送这些指令.
 ## 注意事项
   1. 现在信使**不再依赖**前置插件[chat-command]
+  2. 对于Winodws, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999)

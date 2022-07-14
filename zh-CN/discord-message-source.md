@@ -34,12 +34,8 @@
     address: "nats://itsusinn.site:4222"
   # 加密设置
   cipher:
-    # 是否启用加密
-    enable: true
     # 加密用使用的密钥
     key: test
-    # 是否拒绝未经加密的消息
-    refuse_plain: true
 
   # 存放信使频道与DC文字频道的对应关系,默认为空. 不推荐手动添加.
   bindings: {}

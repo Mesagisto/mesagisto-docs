@@ -1,0 +1,41 @@
+name: deploy
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Install mdBook
+      uses: peaceiris/actions-mdbook@v1
+      with:
+        mdbook-version: 'latest'
+
+    - name: Mdbook build
+      run: |
+        cd zh-CN
+        mdbook build
+        cd ..
+        cd en-US
+        mdbook build
+        cd ..
+
+    - name: Deploy zh-CN
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./zh-CN/book
+        destination_dir: zh-CN
+
+    - name: Deploy en-US
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./en-US/book
+        destination_dir: en-US

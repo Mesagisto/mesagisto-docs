@@ -1,0 +1,5 @@
+[book]
+language = "zh-CN"
+multilingual = false
+src = "./"
+title = "mesagisto-docs"

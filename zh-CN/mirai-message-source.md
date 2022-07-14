@@ -7,7 +7,7 @@
 ## 简单入门
   1. 运行一次MCL并关闭
   2. MCL目录下 找到配置文件 config/org.meowcat.mesagisto/mesagisto.yml 并修改
-  参考:
+    参考:
   ```yaml
   # 是否启用插件
   enable: true

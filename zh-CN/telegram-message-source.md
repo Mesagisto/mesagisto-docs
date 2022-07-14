@@ -25,12 +25,8 @@
     address: "nats://itsusinn.site:4222"
   # 加密设置
   cipher:
-    # 是否启用加密
-    enable: true
     # 加密用使用的密钥
     key: test
-    # 是否拒绝未经加密的消息
-    refuse_plain: true
   telegram:
     # TG Bot的token,于@BotFather处获取
     token: "114514114:IYokoiYoT4YfU_NA9NzhS5HS5oT-oJTrE"

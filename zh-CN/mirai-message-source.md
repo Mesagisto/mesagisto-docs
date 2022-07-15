@@ -16,12 +16,8 @@
     address: 'nats://itsusinn.site:4222'
   # 加密设置
   cipher:
-    # 是否启用加密
-    enable: false
     # 加密用使用的密钥
     key: your-key
-    # 是否拒绝未经加密的消息
-    refuse-plain: true
   # 网络代理, 下载Telegram或Discord图片时所需
   # 注意, 如果tg-bot/dc-bot与mirai-bot在同一台主机
   # 仅设置tg-bot/dc-bot的代理即可

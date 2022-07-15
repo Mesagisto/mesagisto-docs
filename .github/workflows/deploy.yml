@@ -13,26 +13,26 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.x
-    - run: pip install mkdocs-material mkdocs-redirects mkdocs-minify-plugin
+    - run: |
+        pip install mkdocs-material mkdocs-redirects mkdocs-minify-plugin
+        mkdir static
 
     - name: Mkdocs build zh-CN
-      run: mkdocs build -f mkdocs.zh-CN.yml
-    - name: Deploy zh-CN
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: site
-        destination_dir: zh-CN
+      run: |
+        mkdocs build -f mkdocs.zh-CN.yml
+        mv site static/zh-CN
       env:
         GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
 
     - name: Mkdocs build en-US
-      run: mkdocs build -f mkdocs.en-US.yml
+      run: |
+        mkdocs build -f mkdocs.en-US.yml
+        mv site static/en-US
+      env:
+        GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
+
     - name: Deploy en-US
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: site
-        destination_dir: en-US
-      env:
-        GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
+        publish_dir: static

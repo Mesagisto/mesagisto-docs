@@ -10,37 +10,40 @@
 
 2. 将jar包移动至bungeecord系服务端(如Waterfall等)的plugins文件夹下。
 
-3. 启动服务器,此时会自动生成配置文件。
+3. 启动服务器,此时会自动生成配置文件, {==关闭服务器==}。
 
 4. 修改plugins/mesagisto/config.yml，
-   参考
 
-```yaml
-# 是否启用信使
-enable: true
-# 您的信使频道绑定
-# 可手动编辑,但建议通过指令添加
-bindings:
-  # 服务器名: 信使频道
-  sub1: "test"
-  sub2: "test"
-# 加密设置
-cipher:
-  # 加密用使用的密钥 {==需保证各端相同==}
-  key: "default"
-# id计数器
-idCounter:
-  sub1: 7
-  sub2: 3
-# 中间转发服务器,消息的桥梁.
-# 默认为我个人提供的[NATS](https://github.com/nats-io/nats-server)服务器
-nats: "nats://nats.mesagisto.org:4222"
-# 消息模板
-template:
-  message: "§7<{{sender}}> {{content}}"
-```
+    ```yaml
+    # 是否启用信使
+    enable: true
+    # 您的信使频道绑定
+    # 可手动编辑,但建议通过指令添加
+    bindings:
+      # 服务器名: 信使频道
+      sub1: "test"
+      sub2: "test"
+    # 加密设置
+    cipher:
+      # 加密用使用的密钥 {==需保证各端相同==}
+      key: "default"
+    # id计数器
+    idCounter:
+      sub1: 7
+      sub2: 3
+    # 中间转发服务器,消息的桥梁.
+    # 默认为我个人提供的[NATS](https://github.com/nats-io/nats-server)服务器
+    nats: "nats://nats.mesagisto.org:4222"
+    # 消息模板
+    template:
+      message: "§7<{{sender}}> {{content}}"
+    ```
 
-5. 保存配置文件，重启bungee服务端。
+5. 保存配置文件，启动服务器。
+
+6. 
+    - 在需要设置信使的子服内使用`/msgist help`查看帮助
+    - 使用`/msgist [频道名]`绑定信使频道
 
 ## 注意事项
 
@@ -54,12 +57,12 @@ template:
     permissions:
       admin:
       - some-other-perm
-      - {==mesagisto==}
+      - {++mesagisto++}
     ......
-	groups:
+    groups:
       playername:
       - default
-      - {==admin==}
+      - {++admin++}
     ```
 
 === "使用权限管理插件"

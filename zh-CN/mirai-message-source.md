@@ -7,7 +7,7 @@
 ## 简单入门
   1. 运行一次MCL并关闭
   2. MCL目录下 找到配置文件 config/org.meowcat.mesagisto/mesagisto.yml 并修改
-    参考:
+
   ```yaml
   # 是否启用插件
   enable: true
@@ -41,6 +41,7 @@
   # 存放信使频道与QQ群的对应关系,默认为空. 不推荐手动添加.
   bindings: {}
   ```
+  
   3. 群主 (**除了BOT自身**) 可以执行以下指令 `/f` 或 `/信使` 将会得到
   ```
           未知指令

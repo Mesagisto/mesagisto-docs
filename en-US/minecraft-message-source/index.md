@@ -1,1 +1,0 @@
-# Minecraft Message Source

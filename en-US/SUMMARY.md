@@ -1,8 +1,0 @@
-- [Mirai Message Source](./mirai-message-source.md)
-- [Minecraft Message Source](./minecraft-message-source/index.md)
-	- [Bukkit 1.12-1.18](./minecraft-message-source/bukkit.md)
-	- [Fabric 1.16-1.18](./minecraft-message-source/fabric.md)
-	- [Forge 1.18](./minecraft-message-source/forge.md)
-- [Telegram Message Source](./telegram-message-source.md)
-- [Discord Message Source](./discord-message-source.md)
-- [Mesagisto-Diagnose](./diagnose.md)

@@ -1,42 +1,65 @@
-# mirai-mesaga-fonto 
-** part of [Mesagisto](https://github.com/MeowCat-Studio/mesagisto). A implementation of message-forwarding client.**
+# mirai消息源
+**[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的mirai(Tencent-QQ)实现。**
 
-## Install
+## 安装
+  1. 在[Releases页面](https://github.com/MeowCat-Studio/mirai-message-source/releases) 下载jar归档文件。
+  2. 移动至mirai-console(或是mcl)同目录的plugins文件夹下。
+## 简单入门
+  1. 运行一次MCL并关闭
+  2. MCL目录下 找到配置文件 config/org.meowcat.mesagisto/mesagisto.yml 并修改
 
-  - Installation on the server
+  ```yaml
+  # 是否启用插件
+  enable: true
+  # 中间转发服务器,消息的桥梁. 默认为我个人提供的[NATS](https://github.com/nats-io/nats-server)服务器
+  nats:
+    address: 'nats://itsusinn.site:4222'
+  # 加密设置
+  cipher:
+    # 是否启用加密
+    enable: false
+    # 加密用使用的密钥
+    key: your-key
+    # 是否拒绝未经加密的消息
+    refuse-plain: true
+  # 网络代理, 下载Telegram或Discord图片时所需
+  # 注意, 如果tg-bot/dc-bot与mirai-bot在同一台主机
+  # 仅设置tg-bot/dc-bot的代理即可
+  proxy:
+    # 是否启用代理
+    enable: false
+    # 代理服务器地址
+    address: 'http://127.0.0.1:7890'
+  # 实验性权限配置
+  perm: 
+    # 严格模式, 当启用时
+    # 信使仅对下方users列表内用户所发命令作出响应
+    strict: false
+    # 用户列表, QQ号
+    users: 
+      - 123456
+  # 存放信使频道与QQ群的对应关系,默认为空. 不推荐手动添加.
+  bindings: {}
+  ```
+  
+  3. 群主 (**除了BOT自身**) 可以执行以下指令 `/f` 或 `/信使` 将会得到
+  ```
+          未知指令
+          ------  用法  ------
+          /信使 绑定 [频道名]
+          或 
+          /f bind [频道名]
+          例如
+          /f bind 114514、/信使 绑定 114514 等
+          ------  列表  ------
+          /f help = /信使 帮助
+          /f unbind = /信使 解绑
+          /f about = /信使 关于
+          /f status = /信使 状态
+  ```
+  任何管理员或群主可通过`/信使 设置频道 [频道名]`或`/f sc [频道名]`设置频道
 
-    1. Download mmf.mirai.jar from [Releases page](https://github.com/MeowCat-Studio/mirai-mesaga-fonto/releases).
-    2. Move to the plugins folder of mirai-console (or mcl).
-
-  - Install on Android (8.0+)
-    1. Download mamf.apk from [Releases page](https://github.com/MeowCat-Studio/mirai-mesaga-fonto/releases).
-    2. Install it as an Android application
-
-## Simple instruction
-
-__You may take a look at main repo's readme for usage first.__
-
-Execute the command below in MCL:
-
-   `> /perm permit * org.meowcat.mesagisto:*`
-
-Then any OP (EXCEPT bot itself) can execute commands below
- ```
- /forward setChannel
- or shortly: /f sc
- /forward setChannel <channel>
- or shortly: /f sc <channel>
- ```
-by simply send them in a **QQ group chat**(not Mirai Console).
-
-If no `channel` parameter is given, the default value will be used,which is the command sender's qq number.
-
-
-## Attention
-
-In order to use commands in the chat environment you need to install the **preceding plugin [chat-command](https://github.com/project-mirai/chat-command)**
-
-> After installing the chat-command, you must enter the command in the mirai console
->
-> `permission permit * net.mamoe.mirai.console.chat-command:*`
-
+  > 在 **QQ 群聊**(而不是 Mirai 控制台)中发送这些指令.
+## 注意事项
+  1. 现在信使**不再依赖**前置插件[chat-command]
+  2. 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 和 [Microsoft Visual C++ 2015-2020 Redistributable运行时](https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) 运行时位数应与JDK保持一致

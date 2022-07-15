@@ -31,8 +31,12 @@ jobs:
       env:
         GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
 
-    - name: Deploy en-US
+    - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: static
+        cname: docs.mesagisto.org
+        force_orphan: true
+        user_name: github-actions[bot]
+        user_email: github-actions[bot]@users.noreply.github.com

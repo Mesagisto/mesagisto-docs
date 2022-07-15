@@ -13,7 +13,7 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.x
-    - run: pip install mkdocs-material mkdocs-redirects
+    - run: pip install mkdocs-material mkdocs-redirects mkdocs-minify-plugin
 
     - name: Mkdocs build zh-CN
       run: mkdocs build -f mkdocs.zh-CN.yml

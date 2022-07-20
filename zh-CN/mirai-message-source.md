@@ -1,6 +1,9 @@
 # mirai消息源
 **[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的mirai(Tencent-QQ)实现。**
 
+## 需求
+- Mirai 2.12.0+, MCL 2.1.0+
+- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时位数应与JDK保持一致
 ## 安装
   1. 在[Releases页面](https://github.com/MeowCat-Studio/mirai-message-source/releases) 下载jar归档文件。
   2. 移动至mirai-console(或是mcl)同目录的plugins文件夹下。
@@ -37,7 +40,7 @@
   # 存放信使频道与QQ群的对应关系,默认为空. 不推荐手动添加.
   bindings: {}
   ```
-  
+
   3. 群主 (**除了BOT自身**) 可以执行以下指令 `/f` 或 `/信使` 将会得到
   ```
           未知指令
@@ -58,4 +61,3 @@
   > 在 **QQ 群聊**(而不是 Mirai 控制台)中发送这些指令.
 ## 注意事项
   1. 现在信使**不再依赖**前置插件[chat-command]
-  2. 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 和 [Microsoft Visual C++ 2015-2020 Redistributable运行时](https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) 运行时位数应与JDK保持一致

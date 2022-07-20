@@ -4,6 +4,9 @@
 
 **[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的bungee(Minecraft)实现。**
 
+## 需求
+- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时位数应与JDK保持一致
+
 ## 安装
 
 1. 在[Releases页面](https://github.com/MeowCat-Studio/bungee-message-source/releases) 下载jar归档文件。
@@ -47,8 +50,7 @@
 
 ## 注意事项
 
-1. 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999)
-2. 权限管理,本插件的权限节点为`mesagisto`, 若想使用信使的命令需要授予该权限
+1. 权限管理,本插件的权限节点为`mesagisto`, 若想使用信使的命令需要授予该权限
 
 === "不使用权限管理插件"
 

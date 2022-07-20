@@ -1,6 +1,9 @@
 # bukkit消息源
 **[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的bukkit(Minecraft)实现。**
 
+## 需求
+- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时位数应与JDK保持一致
+
 ## 安装
 
 1. 在[Releases页面](https://github.com/MeowCat-Studio/bukkit-message-source/releases) 下载jar归档文件。
@@ -10,7 +13,7 @@
 3. 启动服务器,此时会自动生成配置文件。
 
 4. 修改plugins/mesagisto/config.yml，
-  参考
+    参考
   ```yaml
   # 是否启用信使
   enable: true
@@ -31,22 +34,4 @@
 5. 保存配置文件，重启bukkit服务端。
 
 ## 注意事项
-1. 与InteractiveChat的兼容性问题,请编辑plugins/InteractiveChat/config.yml
-  找到
-  ```yaml
-  Settings:
-    Bungeecord: false
-    ChatListeningPlugins:
-      - "Plugin:QuickShop, Class:.*, EventPriority:LOWEST"
-      - "Plugin:Slimefun, Class:.*, EventPriority:LOWEST"
-  ```
-  在列表ChatListeningPlugins中添加`"Plugin:bukkit-message-source, Class:.*, EventPriority:LOWEST"`即
-  ```yaml
-  Settings:
-    Bungeecord: false
-    ChatListeningPlugins:
-      - "Plugin:QuickShop, Class:.*, EventPriority:LOWEST"
-      - "Plugin:Slimefun, Class:.*, EventPriority:LOWEST"
-      - "Plugin:bukkit-message-source, Class:.*, EventPriority:LOWEST"
-  ```
-2. 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999)
+1. 避免使用热重载, 如果出现问题请先手动重启

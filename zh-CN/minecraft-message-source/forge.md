@@ -8,7 +8,7 @@
 
 1. 在[Releases页面](https://github.com/MeowCat-Studio/forge-message-source/releases)下载jar归档文件。
 2. 将jar包移动至forge服务端的mods文件夹下。
-3. 启动服务器,此时会自动生成配置文件, 关闭服务器。
+3. 启动服务器,此时会自动生成配置文件, , {==关闭服务器==}。
 4. 修改mods/mesagisto/config.yml，
     参考
   ```yaml

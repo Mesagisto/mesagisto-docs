@@ -1,4 +1,5 @@
 # MCMod消息源
+
 **[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的mcmod(Minecraft)实现。**
 
 ## 需求
@@ -19,6 +20,7 @@
 3. 启动服务器,此时会自动生成配置文件。
 4. 修改mods/mesagisto/config.yml，
     参考
+
   ```yaml
   # 是否启用信使
   enable: true
@@ -29,7 +31,7 @@
   # 这对于那些安装了子服间消息互通的服务器可能很有用
   target: "target-name"
   # 中间转发服务器,消息的桥梁.
-  # 默认为我个人提供的[NATS](https://github.com/nats-io/nats-server)服务器
+  # 默认为信使公益[NATS](https://github.com/nats-io/nats-server)服务器
   nats:
     address: nats://nats.mesagisto.org:4222
   # 加密设置
@@ -37,8 +39,8 @@
     # 加密用使用的密钥 需保证各端相同
     key: default-key
   ```
-
 5. 启动fabric/forge服务端。
 
 ## 注意事项
+
 1. 暂无

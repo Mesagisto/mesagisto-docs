@@ -5,7 +5,10 @@
 ## 需求
 
 - Mirai 2.12.0+, MCL 2.1.0+
-- 前值插件[ChatCommand](https://github.com/project-mirai/chat-command)
+
+- 前置插件[ChatCommand](https://github.com/project-mirai/chat-command)
+  > 信使自动配置指令权限, 请不要使用perm命令操作信使的权限(因为每次启动时便会重置)
+
 - 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 位数应与JDK保持一致
 
 ## 安装
@@ -28,7 +31,6 @@
 	注意: 由于预发行版仅发布在GitHub Release上, 所以使用了[GH-Proxy](https://ghproxy.com/)
 
 	但在某些地区访问仍旧受阻,推荐修改 mcl 配置文件`config.json` 中 proxy代理选项
-
 
 ## 简单入门
 

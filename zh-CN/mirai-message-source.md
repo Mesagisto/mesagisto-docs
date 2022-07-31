@@ -10,8 +10,25 @@
 
 ## 安装
 
-- 在[Releases页面](https://github.com/MeowCat-Studio/mirai-message-source/releases) 下载jar归档文件。 移动至mirai-console(或是mcl)同目录的plugins文件夹下。
-- 或使用mcl安装 `./mcl --update-package org.mesagisto:mirai-message-source --channel stable --type plugin` 其支持自动更新插件
+=== "手动安装"
+
+	在[Releases页面](https://github.com/MeowCat-Studio/mirai-message-source/releases) 下载jar归档文件。 移动至mirai-console(或是mcl)同目录的plugins文件夹下。
+
+=== "MCL自动安装 稳定版"
+
+	使用mcl命令 `./mcl --update-package org.mesagisto:mirai-message-source --channel stable --type plugin`
+
+	每次启动时使用`./mcl -u`更新即可
+=== "MCL自动安装 预发布"
+
+	使用mcl命令 `./mcl --update-package org.mesagisto:mirai-message-source --channel pre-release --type plugin`
+
+	每次启动时使用`./mcl -u`更新即可
+
+	注意: 由于预发行版仅发布在GitHub Release上, 所以使用了[GH-Proxy](https://ghproxy.com/)
+
+	但在某些地区访问仍旧受阻,推荐修改 mcl 配置文件`config.json` 中 proxy代理选项
+
 
 ## 简单入门
 
@@ -67,5 +84,4 @@ bindings: {}
 ## 注意事项
 
  1. 在 **QQ 群聊**(而不是 Mirai 控制台)中发送这些指令.
- 2.
- 3. 黑名单功能需要开启严格模式
+ 2. 黑名单功能需要开启严格模式

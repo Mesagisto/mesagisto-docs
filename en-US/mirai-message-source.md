@@ -13,7 +13,7 @@
 
 
 !!! Warning
-    Messenger will automatically configure command permissions, please do not use permission command to operate messenger permissions (because it will be reset every time you start)
+    Mesagisto will automatically configure command permissions, please do not use permission command to operate Mesagisto permissions (because it will be reset every time you start)
 ## Installation
 
 === "Manual installations"
@@ -41,50 +41,50 @@
 
 2. Find the configuration file config/org.mesagisto.mirai-message-source/config.yml and modify
 ```yaml
-# 中间转发服务器,消息的桥梁.
-# 默认为信使公益[NATS](https://github.com/nats-io/nats-server)服务器
+# Intermediate forwarding server, message bridge.
+# The default is Mesagisto commonweal [NATs](https://github.com/nats-io/nats-server) Server
 nats:
   address: 'nats://nats.mesagisto.org:4222'
-# 加密设置
+# Encryption settings
 cipher:
-  # 加密用使用的密钥
+  # Key used for encryption
   key: your-key
-# 网络代理, 下载Telegram或Discord图片时所需
-# 注意, 如果tg-bot/dc-bot与mirai-bot在同一台主机
-# 仅设置tg-bot/dc-bot的代理即可
+# Network agent, required for downloading telegram or discord pictures
+# Note that if TGBot / DCBot and MiraiBot are on the same host
+# Just set the agent of TGBot / DCBot
 proxy:
-  # 是否启用代理
+  # Enable agent
   enable: false
-  # 代理服务器地址
+  # Proxy server address
   address: 'http://127.0.0.1:7890'
-# 实验性权限配置
+# Experimental options
 perm: 
-  # 严格模式, 当启用时
-  # 信使仅对下方users列表内用户所发命令作出响应
-  # 当禁用时, 信使对所有用户所发指令作出响应
-  # 但频道绑定仅允许管理员操作
+  # Strict mode, when enabled
+  # Mesagisto only responds to commands sent by users in the users list below
+  # When disabled, the Mesagisto will respond to the instructions sent by all users
+  # However, channel binding only allows administrators to operate
   strict: false
-  # 用户列表, QQ号
+  # User list, QQ number
   users: 
     - 123456
-# 存放信使频道与QQ群的对应关系,默认为空. 不推荐手动添加.
+# Stores the correspondence between Mesagisto channel and QQ group. It is empty by default Manual addition is not recommended
 bindings: {}
 ```
 
-3. 在 **QQ 群聊** (而不是 Mirai 控制台)中可以执行以下指令 `/msgist` 或 `/信使` 将会得到
+3. In ** QQ group chat ** (instead of Mirai console), you can execute the following command ` /msgist` or `/信使`. You will get
 ```text
-    参数不匹配, 你是否想执行: 
-    /msgist about    (参数不足)
-    /msgist ban <user>    (参数不足)
-    /msgist bind <channel>    (参数不足)
-    /msgist disable <group/channel>    (参数不足)
-    /msgist enable <group/channel>    (参数不足)
-    /msgist status    (参数不足)
-    /msgist unban <user>    (参数不足)
-    /msgist unbind    (参数不足)
+    The parameters do not match. Do you want to execute: 
+    /msgist about    (insufficient parameters)
+    /msgist ban <user>    (insufficient parameters)
+    /msgist bind <channel>    (insufficient parameters)
+    /msgist disable <group/channel>    (insufficient parameters)
+    /msgist enable <group/channel>    (insufficient parameters)
+    /msgist status    (insufficient parameters)
+    /msgist unban <user>    (insufficient parameters)
+    /msgist unbind    (insufficient parameters)
 ```
-4. 使用 /msgist bind 频道名 即可绑定到信使频道
+4. Use `/msgist bind channel `to bind to Mesagisto channel
 
-## 注意事项
- 1. 需要转发的消息源需要绑定同一个 ** 频道名**
- 2. 黑名单功能需要开启严格模式
+## Matters needing attention
+ 1. The message source to be forwarded needs to be bound to the same ** channel name **
+ 2. The blacklist function needs to be in strict mode

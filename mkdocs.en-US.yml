@@ -1,4 +1,4 @@
-site_name: MesagistoDocs
+site_name: Mesagisto
 docs_dir: en-US
 site_url: https://docs.mesagisto.org/en-US
 repo_url: https://github.com/MeowCat-Studio/mesagisto
@@ -14,6 +14,7 @@ nav:
       - Telegram: telegram-message-source.md
       - Discord: discord-message-source.md
     - Diagnose: diagnose.md
+    - 中文: https://docs.mesagisto.org/zh-CN/
 theme:
   name: material
   features:

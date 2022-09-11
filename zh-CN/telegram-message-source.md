@@ -1,24 +1,25 @@
-# Telegram消息源
+# Telegram 消息源
 
-**[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的Telegram 实现。**
+** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Telegram 客户端 **
 
 ## 需求
 
-1. Bot应该在BotFather处将Group Privacy Mode设置为 OFF,否则Bot将无法访问群聊消息.
+1. Bot 应该在 BotFather 处将 Group Privacy Mode 设置为 OFF,否则你的 Bot 将无法访问群聊消息.
 
 ## 部署
 
-1. 在 [Release页面](https://github.com/MeowCat-Studio/telegram-message-source/releases)获取二进制文件(简称tms)。
- > 文件命名规则：tg-<架构>-<操作系统>-<特性>
- >
- > 对于Windows用户而言, 可执行文件有colored版本，colored版本的文件有终端的颜色代码，PS下可能出现乱码。
- > 推荐有MINGW终端的Winodws用户下载该版本
+1. 在 [Release页面](https://github.com/MeowCat-Studio/telegram-message-source/releases) 获取二进制文件(以下简称tms)
+!!! Note
+     文件命名规则：tg-<架构>-<操作系统>-<特性>
+     
+     频道名对于 Windows 用户而言, 可执行文件会带有 colored 后缀，colored 版本的文件有终端的颜色代码，PS(PowerShell)下可能出现乱码。
+     推荐有 MINGW 终端的 Winodws 用户下载该版本
 
-2. 确保tms在能稳定访问访问Telegram服务器的网络环境下（可能需要HTTP代理,详见本文档配置文件部分）。
+2. 确保 tms 能在稳定访问访问 Telegram 服务器的网络环境下（可能需要HTTP代理,详见本文档配置文件部分）
 
-3. 运行tms,自动生成默认配置文件`config/tg.yml`
+3. 运行 tms ,自动生成默认配置文件 `config/tg.yml`
 
-4. 编辑配置文件`config/tg.yml`。
+4. 编辑配置文件 `config/tg.yml`
 ```yaml
 ---
 # 在使用前将 `enable` 改为 `true`.
@@ -33,7 +34,7 @@ cipher:
   key: test
 telegram:
   # TG Bot的token密钥,于@BotFather处获取
-  token: "114514114:IYokoiYoT4YfU_NA9NzhS5HS5oT-oJTrE"
+  token: "114514191:IYokoiYoT4YfU_NA9NzhS5HS5oT-oJTrE"
 proxy:
   # 是否启用代理
   enable: true
@@ -43,7 +44,7 @@ proxy:
 bindings: {}
 ```
 
-5. 启动tms:
+5. 启动 tms:
 ```shell
 # 给予可执行权限
 $ chmod +x ./tms
@@ -63,12 +64,10 @@ $ ^C
 /bind — 绑定当前群组的转发地址
 ```
 
-6. 创建一个 Telegram 群组, 将bot添加至群组, 并在群组内输入指令:
+6. 创建一个 Telegram 群组, 将 Bot 添加至群组, 并在群组内输入指令:
 `/bind <channel>`
-> 此处channel的值为应设置的信使频道
->
-> 无论channel的值如何，只要保证不同转发客户端的值相同即可
 
 ## 注意事项
 
-- 中途变更Group Privacy Mode后, 请将Bot移除出群组并重启.
+1. 无论 channel 的值如何，只要保证各个转发客户端绑定的频道相同即可
+2. 中途变更 Group Privacy Mode 后, 请将 Bot 移除出群组并重启.

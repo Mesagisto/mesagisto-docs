@@ -1,20 +1,20 @@
-# bukkit消息源
+# Bukkit 消息源
 
-**[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的bukkit(Minecraft)实现。**
+** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Mineraft[Bukkit] 客户端 **
 
 ## 需求
 
-- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时位数应与JDK保持一致
+- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable 运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时的位数应与JDK保持一致
 
 ## 安装
 
-1. 在[Releases页面](https://github.com/MeowCat-Studio/bukkit-message-source/releases) 下载jar归档文件。
+1. 在[Releases页面](https://github.com/MeowCat-Studio/bukkit-message-source/releases) 下载 jar 归档文件
 
-2. 将jar包移动至bukkit系服务端(如Spigot,Paper等)的plugins文件夹下。
+2. 将jar包移动至bukkit系服务端(如Spigot,Paper等)的 plugins 文件夹下
 
-3. 启动服务器,此时会自动生成配置文件。
+3. 启动服务器,此时会在 plugins 文件夹下自动生成配置文件
 
-4. 修改plugins/mesagisto/config.yml，
+4. 修改 `plugins/mesagisto/config.yml`
   ```yaml
   # 是否启用信使
   enable: true
@@ -34,8 +34,9 @@
     key: "your-key"
   ```
 
-5. 保存配置文件，重启bukkit服务端。
+5. 保存配置文件，重启bukkit服务端
 
 ## 注意事项
 
 1. 避免使用热重载, 如果出现问题请先手动重启
+2. 无论 channel 的值如何，只要保证各个转发客户端绑定的频道相同即可

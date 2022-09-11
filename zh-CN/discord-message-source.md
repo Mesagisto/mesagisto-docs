@@ -1,24 +1,24 @@
-# Discord消息源
+# Discord 消息源
 
-**[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的Discord 实现。**
-
+** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Discord 客户端 **
 ## 需求
 
-- 在Discord Developer Portal注册Bot时, 请前往左侧Bot分页, 将Privileged Gateway Intents的Presence Intent,Server Members Intent,Message Content Intent全部开启
+- 在Discord Developer Portal 注册 Bot 时, 请前往左侧 Bot 分页, 将 Privileged Gateway Intents 下的 Presence Intent , Server Members Intent 以及 Message Content Intent 全部开启
 
 ## 部署
 
-1. 在 [Release页面](https://github.com/MeowCat-Studio/discord-message-source/releases)获取二进制文件(简称dms)。
- > 文件命名规则：dc-<架构>-<操作系统>-<特性>
- >
- > 对于Windows用户而言, 可执行文件会带有colored后缀，colored版本的文件有终端的颜色代码，PS下可能出现乱码。
- > 推荐有MINGW终端的Winodws用户下载该版本
+1. 在 [Release页面](https://github.com/MeowCat-Studio/discord-message-source/releases) 获取二进制文件(以下简称dms)
+!!! Note
+     文件命名规则：dc-<架构>-<操作系统>-<特性>
 
-2. 确保dms在能稳定访问访问Discord服务器的网络环境下（可能需要HTTP代理,详见本文档配置文件部分）。
+     频道名对于 Windows 用户而言, 可执行文件会带有 colored 后缀，colored 版本的文件有终端的颜色代码，PS(PowerShell)下可能出现乱码。
+     推荐有 MINGW 终端的 Winodws 用户下载该版本
 
-3. 运行dms,自动生成默认配置文件`config/dc.yml`
+2. 确保 dms 在能稳定访问访问 Discord 服务器的网络环境下（可能需要HTTP代理,详见本文档配置文件部分）
 
-4. 编辑配置文件`config/dc.yml`。
+3. 运行 dms ,自动生成默认配置文件 `config/dc.yml`
+
+4. 编辑配置文件 `config/dc.yml` 
   ```yaml
   ---
   # 在使用前将 `enable` 改为 `true`.
@@ -54,11 +54,10 @@
   $ ^C
   ```
 
-6. 将bot添加至DC服务器，创建一个 Discord 文字频道，并在文字频道内输入指令: `/help`
+6. 将你的 bot 添加至 DC 服务器，创建一个 Discord 文字频道，并在文字频道内输入指令: `/help`
 你将获得指令的帮助
 使用`/channel bind <channel>`来设置信使频道
-> 无论channel的值如何，只要保证不同转发客户端的值相同即可
 
 ## 注意事项
 
-1. 暂无
+1. 无论 channel 的值如何，只要保证各个转发客户端绑定的频道相同即可

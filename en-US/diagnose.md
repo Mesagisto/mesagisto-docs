@@ -1,2 +1,2 @@
 # Mesagisto-Diagnose
-唔... 这个我也不会呢！
+Um... I can't do this either!

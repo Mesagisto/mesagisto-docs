@@ -1,25 +1,25 @@
-# Telegram 消息源
+# Telegram message source
 
-** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Telegram 客户端 **
+** The function of [Mesagisto](https://github.com/MeowCat-Studio/mesagisto) is to forward messages to the telegram client **
 
-## 需求
+## Requirement
 
-1. Bot 应该在 BotFather 处将 Group Privacy Mode 设置为 OFF,否则你的 Bot 将无法访问群聊消息.
+1. Bot should set group privacy mode to off at botfather, otherwise your bot will not be able to access group chat messages
 
 ## 部署
 
-1. 在 [Release页面](https://github.com/MeowCat-Studio/telegram-message-source/releases) 获取二进制文件(以下简称tms)
+1. Get binary files on the [Release Page](https://github.com/MeowCat-Studio/telegram-message-source/releases)  (hereinafter referred to as TMS)
 !!! Note
-     文件命名规则：tg-<架构>-<操作系统>-<特性>
-     
-     频道名对于 Windows 用户而言, 可执行文件会带有 colored 后缀，colored 版本的文件有终端的颜色代码，PS(PowerShell)下可能出现乱码。
-     推荐有 MINGW 终端的 Winodws 用户下载该版本
 
-2. 确保 tms 能在稳定访问访问 Telegram 服务器的网络环境下（可能需要HTTP代理,详见本文档配置文件部分）
+     File naming rules: TG-<schema>-<operating system>-<features>
+     Binary for Windows users, the executable file will have a colored suffix. The colored version of the file has the color code of the terminal, and there may be garbled code in PS (PowerShell).
+     It is recommended that Windows users with MinGW terminal download this version
 
-3. 运行 tms ,自动生成默认配置文件 `config/tg.yml`
+1. 确保 tms 能在稳定访问访问 Telegram 服务器的网络环境下（可能需要HTTP代理,详见本文档配置文件部分）
 
-4. 编辑配置文件 `config/tg.yml`
+2. 运行 tms ,自动生成默认配置文件 `config/tg.yml`
+
+3. 编辑配置文件 `config/tg.yml`
 ```yaml
 ---
 # 在使用前将 `enable` 改为 `true`.

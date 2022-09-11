@@ -11,7 +11,7 @@
 !!! Note
      文件命名规则：dc-<架构>-<操作系统>-<特性>
 
-     频道名对于 Windows 用户而言, 可执行文件会带有 colored 后缀，colored 版本的文件有终端的颜色代码，PS(PowerShell)下可能出现乱码。
+     二进制对于 Windows 用户而言, 可执行文件会带有 colored 后缀，colored 版本的文件有终端的颜色代码，PS(PowerShell)下可能出现乱码。
      推荐有 MINGW 终端的 Winodws 用户下载该版本
 
 2. 确保 dms 在能稳定访问访问 Discord 服务器的网络环境下（可能需要HTTP代理,详见本文档配置文件部分）

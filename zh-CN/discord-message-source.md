@@ -30,7 +30,7 @@
   proxy:
     # 是否启用代理
     enabled: true
-    # 现阶段仅允许http代理(reqwest库限制)
+    # 现阶段仅允许http代理(request库限制)
     address: "http://127.0.0.1:7890"
   # 中间转发服务器,消息的桥梁.
   # 默认为信使公益[NATS](https://github.com/nats-io/nats-server)服务器

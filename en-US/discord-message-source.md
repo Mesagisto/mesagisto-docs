@@ -1,63 +1,61 @@
-# Discord 消息源
+# Discord message source
 
-** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Discord 客户端 **
-## 需求
+** The function of [Mesagisto](https://github.com/MeowCat-Studio/mesagisto) is to forward messages to discord client **
 
-- 在Discord Developer Portal 注册 Bot 时, 请前往左侧 Bot 分页, 将 Privileged Gateway Intents 下的 Presence Intent , Server Members Intent 以及 Message Content Intent 全部开启
+## Requirement
 
-## 部署
+- When registering Bot in discord developer portal, please go to the Bot page on the left and turn on presence intent, server members intent and message content intent under privileged gateway intentions
 
-1. 在 [Release页面](https://github.com/MeowCat-Studio/discord-message-source/releases) 获取二进制文件(以下简称dms)
+## Deploy
+1. Get the binary file (dms for short) on the [Release Page](https://github.com/MeowCat-Studio/discord-message-source/releases)
 !!! Note
-     文件命名规则：dc-<架构>-<操作系统>-<特性>
+     File naming rules: dc-<schema>-<operating system>-<features>
+     Binary for Windows users, the executable file will have a colored suffix. The colored version of the file has the color code of the terminal, and there may be garbled code in PS (PowerShell).
+     It is recommended that Windows users with MinGW terminal download this version
 
-     二进制对于 Windows 用户而言, 可执行文件会带有 colored 后缀，colored 版本的文件有终端的颜色代码，PS(PowerShell)下可能出现乱码。
-     推荐有 MINGW 终端的 Winodws 用户下载该版本
+2. Ensure that the dms is in a network environment that can stably access the discord server (HTTP proxy may be required, see the configuration file section of this document for details)
 
-2. 确保 dms 在能稳定访问访问 Discord 服务器的网络环境下（可能需要HTTP代理,详见本文档配置文件部分）
+3. Run dms and automatically generate the default configuration file `config/dc.yml`
 
-3. 运行 dms ,自动生成默认配置文件 `config/dc.yml`
-
-4. 编辑配置文件 `config/dc.yml` 
+4. Edit configuration file `config/dc.yml`
   ```yaml
-  ---
-  # 在使用前将 `enable` 改为 `true`.
+  # Change 'enable' to 'true' before use
   enable: true
-  # Bot的密钥,于Discord Developer Portal获得
+  # Bot's key can be obtained from discord developer portal
   discord:
     token: OTMxNTA1MTU0NjY1MDkxMTEz.YeFZxw.YzOVoAFsW3joO9VX5sTMhhGsoXo
-  # 网络代理设置
+  # Network proxy settings
   proxy:
-    # 是否启用代理
+    # Enable agent
     enabled: true
-    # 现阶段仅允许http代理(reqwest库限制)
+    # Only HTTP proxy is allowed at this stage (request library limit)
     address: "http://127.0.0.1:7890"
-  # 中间转发服务器,消息的桥梁.
-  # 默认为信使公益[NATS](https://github.com/nats-io/nats-server)服务器
+  # Intermediate forwarding server, message bridge
+  # The default is mesagisto commonweal [Nats](https://github.com/nats-io/nats-server) Server
   nats:
     address: "nats://nats.mesagisto.org:4222"
-  # 加密设置
+  # Encryption settings
   cipher:
-    # 加密用使用的密钥
+    # Key used for encryption
     key: test
 
-  # 存放信使频道与DC文字频道的对应关系,默认为空. 不推荐手动添加.
+  # Stores the correspondence between mesagisto channel and DC text channel. It is empty by default Manual addition is not recommended
   bindings: {}
   ```
-5. 启动dms:
+5. Start dms:
   ```shell
-  # 给予可执行权限
+  # Give executable permission
   $ chmod +x ./tms
-  # 运行
+  # Run
   $ ./dms
-  # 若要关闭dms,请使用Ctrl+C,切忌不平滑关闭
+  # To close dms, please use Ctrl + C, and do not close it smoothly
   $ ^C
   ```
 
-6. 将你的 bot 添加至 DC 服务器，创建一个 Discord 文字频道，并在文字频道内输入指令: `/help`
-你将获得指令的帮助
-使用`/channel bind <channel>`来设置信使频道
+6. Add your BOT to the DC server, create a discord text channel, and enter instructions in the text channel: `/help`
+You will get the help of instructions
+Use `/channel bind <channel>` to set the mesagisto channel
 
-## 注意事项
+## Matters needing attention
 
-1. 无论 channel 的值如何，只要保证各个转发客户端绑定的频道相同即可
+1. No matter what the value of channel is, as long as the channels bound by each forwarding client are the same

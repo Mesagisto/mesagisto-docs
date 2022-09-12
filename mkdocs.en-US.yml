@@ -9,8 +9,7 @@ nav:
       - Minecraft:
         - Bukkit ALL: minecraft-message-source/bukkit.md
         - Bungee ALL: minecraft-message-source/bungee.md
-        - Fabric 1.16-1.18: minecraft-message-source/fabric.md
-        - Forge 1.18: minecraft-message-source/forge.md
+        - Fabric 1.16-1.19/Forge 1.18: minecraft-message-source/mcmod.md
       - Telegram: telegram-message-source.md
       - Discord: discord-message-source.md
     - Diagnose: diagnose.md

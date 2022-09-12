@@ -1,56 +1,54 @@
+# Bungee message source
 
-# bungee消息源
+** The function of [Mesagisto](https://github.com/MeowCat-Studio/mesagisto) is to forward messages to the minecraft [bungee] client 客户端 **
 
-** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Mineraft[Bungee] 客户端 **
+## Requirement
 
+- For windows, [Microsoft Visual C++ 2010 Redistributable runtime](https://www.microsoft.com/en-us/download/details.aspx?id=26999) needs to be installed. The number of bits of runtime should be consistent with JDK
 
-## 需求
+## Installation
 
-- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时位数应与JDK保持一致
+1. Download the jar archive on the [Releases Page](https://github.com/MeowCat-Studio/bungee-message-source/releases)
 
-## 安装
+2. Move the jar package to the plugins folder of the bungeerecord server (such as waterfall velocity)
 
-1. 在[Releases页面](https://github.com/MeowCat-Studio/bungee-message-source/releases) 下载 jar 归档文件
+3. Start the server, and the configuration file will be generated automatically
 
-2. 将jar包移动至 bungeecord 系服务端(如 Waterfall Velocity 等)的plugins文件夹下
-
-3. 启动服务器,此时会自动生成配置文件
-
-4. 在确保** 服务器关闭 **的情况下，修改 `plugins/mesagisto/config.yml`
+4. Modify `plugins/mesagisto/config.yml` while ensuring** server shutdown **
 
 ```yaml
-# 是否启用信使
+# Enable mesagisto
 enable: true
-# 您的信使频道绑定
-# 可手动编辑,但建议通过指令添加
+# Your mesagisto channel binding
+# It can be edited manually, but it is recommended to add through instructions
 bindings:
-  # 服务器名: 信使频道
+  # Server name: mesagisto channel
   sub1: "test"
   sub2: "test"
-# 加密设置
+# Encryption settings
 cipher:
-  # 加密用使用的密钥 {==需确保转发各端相同==}
+  # The key used for encryption {==(it is required to ensure that the forwarding ends are the same)==}
   key: "default"
-# 中间转发服务器,消息的桥梁.
-# 默认为信使公益[NATS](https://github.com/nats-io/nats-server)服务器
+# Intermediate forwarding server, message bridge
+# The default is mesagisto commonweal [NATs](https://github.com/nats-io/nats-server) Server
 nats: "nats://nats.mesagisto.org:4222"
-# 消息模板
+# Message template
 template:
   message: "§7<{{sender}}> {{content}}"
 ```
-5. 保存配置文件，启动服务器。
+5. Save the configuration file and start the server.
 
-6.在需要设置信使的子服内使用 `/msgist help` 查看帮助 使用 `/msgist [频道名]` 绑定信使频道
+6. Use `/msgist help` to view help in the sub server where mesagisto needs to be set, and use `/msgist [channel name]` to bind mesagisto channel
 
 
-## 注意事项
+## Matters needing attention
 
-1. 需要转发的消息源需要绑定同一个 ** 频道名**
-2. 权限管理,本插件的权限节点为 `mesagisto` , 若想使用信使的命令需要授予该权限
+1. The message source to be forwarded needs to be bound to the same** channel name **
+2. Permission management: the permission node of this plug-in is `mesagisto`. If you want to use the mesagisto command, you need to grant this permission
 
-=== "不使用权限管理插件"
+=== "Do not use the rights management plug-in"
 
-    修改bungee配置文件config.yml为
+    Modify the bungee configuration file config.yml to
     ```yaml
     permissions:
       admin:
@@ -64,7 +62,7 @@ template:
     ```
 === "LuckPerms"
 
-    在拥有 LuckPerms 的服务器 Console 中执行命令
+    Execute the command in the server console that owns luckperms
     ```
-    lpb user 玩家名 permission set mesagisto
+    lpb user PlayerName permission set mesagisto
     ```

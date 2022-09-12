@@ -1,7 +1,7 @@
 
 # bungee消息源
 
-** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Mineraft[Bungee] 客户端 **
+** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Minecraft[Bungee] 客户端 **
 
 
 ## 需求
@@ -40,7 +40,7 @@ template:
 ```
 5. 保存配置文件，启动服务器。
 
-6.在需要设置信使的子服内使用 `/msgist help` 查看帮助 使用 `/msgist [频道名]` 绑定信使频道
+6. 在需要设置信使的子服内使用 `/msgist help` 查看帮助 使用 `/msgist [频道名]` 绑定信使频道
 
 
 ## 注意事项

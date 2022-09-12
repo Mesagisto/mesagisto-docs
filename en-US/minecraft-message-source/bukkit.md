@@ -1,42 +1,42 @@
-# Bukkit 消息源
+# Bukkit message source
 
-** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Mineraft[Bukkit] 客户端 **
+** The function of [Mesagisto](https://github.com/MeowCat-Studio/mesagisto) is to forward messages to the minecraft[bukkit] client **
 
-## 需求
+## Requirement
 
-- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable 运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时的位数应与JDK保持一致
+- For windows, [Microsoft Visual C++ 2010 Redistributable runtime](https://www.microsoft.com/en-us/download/details.aspx?id=26999) needs to be installed. The number of bits of runtime should be consistent with JDK
 
-## 安装
+## Installation
 
-1. 在[Releases页面](https://github.com/MeowCat-Studio/bukkit-message-source/releases) 下载 jar 归档文件
+1. Download the jar archive on the [Releases Page](https://github.com/MeowCat-Studio/bukkit-message-source/releases)
 
-2. 将jar包移动至bukkit系服务端(如Spigot,Paper等)的 plugins 文件夹下
+2. Move the jar package to the plugins folder of the bukkit server (such as spigot, paper, etc.)
 
-3. 启动服务器,此时会在 plugins 文件夹下自动生成配置文件
+3. Start the server, and the configuration file will be automatically generated under the plugins folder
 
-4. 修改 `plugins/mesagisto/config.yml`
+4. Modify `plugins/mesagisto/config.yml`
   ```yaml
-  # 是否启用信使
+  # Enable mesagisto
   enable: true
-  # 您的信使频道, 无论channel的值如何，
-  # 只要保证不同转发客户端channel的值相同即可
+  # Your mesagisto channel, regardless of the value of channel,
+  # As long as the channel values of different forwarding clients are the same
   channel: "your-channel"
-  # 服务器的TargetName, 具有相同Target的群聊/服务器不会显示彼此的消息
-  # 这对于那些安装了子服间消息互通的服务器可能很有用
+  # Targetname of the server. Group chat/servers with the same target will not display messages from each other
+  # This may be useful for those servers that have installed inter server message exchange
   target: "target-name"
-  # 中间转发服务器,消息的桥梁.
-  # 默认为信使公益[NATS](https://github.com/nats-io/nats-server)服务器
+  # Intermediate forwarding server, message bridge
+  # The default is mesagisto commonweal [NATs](https://github.com/nats-io/nats-server) Server
   nats:
     address: nats://nats.mesagisto.org:4222
-  # 加密设置
+  # Encryption settings
   cipher:
-    # 加密用使用的密钥 需保证各端相同
+    # The key used for encryption shall be the same at each end
     key: "your-key"
   ```
 
-5. 保存配置文件，重启bukkit服务端
+5. Save the configuration file and restart the bukkit server
 
-## 注意事项
+## Matters needing attention
 
-1. 避免使用热重载, 如果出现问题请先手动重启
-2. 无论 channel 的值如何，只要保证各个转发客户端绑定的频道相同即可
+1. Avoid using hot overload. If there is a problem, please restart manually first
+2. No matter what the value of channel is, as long as the channels bound by each forwarding client are the same

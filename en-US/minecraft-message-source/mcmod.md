@@ -1,44 +1,43 @@
-# MCMod消息源
+# MCMod message source
 
-** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Mineraft[Mod] 客户端 **
+** The function of [Mesagisto](https://github.com/MeowCat-Studio/mesagisto) is to forward messages to the minecraft[Mod] client **
 
-## 需求
+## Requirement
 
 === "Fabric 1.16-1.19"
 
-	- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时位数应与JDK保持一致
-	- 前置依赖 [Fabric-API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) 任意版本
-
+	- For windows, [Microsoft Visual C++ 2010 Redistributable runtime](https://www.microsoft.com/en-us/download/details.aspx?id=26999) needs to be installed. The number of bits of runtime should be consistent with JDK
+	- Pre dependent [Fabric-API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) (any version)
 === "Forge1.18"
 
-	- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时的位数应与 JDK 保持一致
+	- For windows, [Microsoft Visual C++ 2010 Redistributable runtime](https://www.microsoft.com/en-us/download/details.aspx?id=26999) needs to be installed. The number of bits of runtime should be consistent with JDK
 
-## 安装
+## Installation
 
-1. 在 [Releases页面](https://github.com/Mesagisto/mcmod-message-source/releases) 下载 jar 归档文件
-2. 将 jar 移动至 fabric/forge 服务端的 mods 文件夹下
-3. 启动服务器,此时会自动生成配置文件
-4. 修改 `mods/mesagisto/config.yml`
+1. Download the jar archive on the [Releases Page](https://github.com/Mesagisto/mcmod-message-source/releases)
+2. Move the jar to the mods folder on the fabric/forge server
+3. Start the server, and the configuration file will be generated automatically
+4. Modify `mods/mesagisto/config.yml`
   ```yaml
-  # 是否启用信使
+  # Enable mesagisto
   enable: true
-  # 您的信使频道, 无论channel的值如何，
-  # 只要保证不同转发客户端channel的值相同即可
+  # Your mesagisto channel, regardless of the value of channel,
+  # As long as the channel values of different forwarding clients are the same
   channel: "your-channel"
-  # 服务器的TargetName, 具有相同Target的群聊/服务器不会显示彼此的消息
-  # 这对于那些安装了子服间消息互通的服务器可能很有用
+  # Targetname of the server. Group chat/servers with the same target will not display messages from each other
+  # This may be useful for those servers that have installed inter server message exchange
   target: "target-name"
-  # 中间转发服务器,消息的桥梁.
-  # 默认为信使公益[NATS](https://github.com/nats-io/nats-server)服务器
+  # Intermediate forwarding server, message bridge
+  # The default is mesagisto commonweal [NATs](https://github.com/nats-io/nats-server) Server
   nats:
     address: nats://nats.mesagisto.org:4222
-  # 加密设置
+  # Encryption settings
   cipher:
-    # 加密用使用的密钥 需保证各端相同
+    # The key used for encryption shall be the same at each end
     key: default-key
   ```
-5. 重启 fabric/forge 服务端。
+5. Restart the fabric/forge server.
 
-## 注意事项
+## Matters needing attention
 
-1. 无论channel的值如何，只要保证各个转发客户端绑定的频道相同即可
+1. No matter what the value of channel is, as long as the channels bound by each forwarding client are the same

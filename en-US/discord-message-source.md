@@ -6,7 +6,7 @@
 
 - When registering Bot in discord developer portal, please go to the Bot page on the left and turn on presence intent, server members intent and message content intent under privileged gateway intentions
 
-## Deploy
+## Deploy-
 1. Get the binary file (dms for short) on the [Release Page](https://github.com/MeowCat-Studio/discord-message-source/releases)
 !!! Note
      File naming rules: dc-<schema>-<operating system>-<features>

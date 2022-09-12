@@ -6,7 +6,7 @@
 
 1. Bot should set group privacy mode to off at botfather, otherwise your bot will not be able to access group chat messages
 
-## 部署
+## Deploy
 
 1. Get binary files on the [Release Page](https://github.com/MeowCat-Studio/telegram-message-source/releases)  (hereinafter referred to as TMS)
 !!! Note

@@ -1,6 +1,6 @@
 # Bukkit 消息源
 
-** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Mineraft[Bukkit] 客户端 **
+** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Minecraft[Bukkit] 客户端 **
 
 ## 需求
 

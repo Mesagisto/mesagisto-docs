@@ -1,6 +1,6 @@
 # MCMod消息源
 
-**[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的mcmod(Minecraft)实现。**
+** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Minecraft[Mod] 客户端 **
 
 ## 需求
 
@@ -11,16 +11,14 @@
 
 === "Forge1.18"
 
-	- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时位数应与JDK保持一致
+	- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时的位数应与 JDK 保持一致
 
 ## 安装
 
-1. 在[Releases页面](https://github.com/Mesagisto/mcmod-message-source/releases)下载jar归档文件。
-2. 将jar包移动至fabric/forge服务端的mods文件夹下。
-3. 启动服务器,此时会自动生成配置文件。
-4. 修改mods/mesagisto/config.yml，
-    参考
-
+1. 在 [Releases页面](https://github.com/Mesagisto/mcmod-message-source/releases) 下载 jar 归档文件
+2. 将 jar 移动至 fabric/forge 服务端的 mods 文件夹下
+3. 启动服务器,此时会自动生成配置文件
+4. 修改 `mods/mesagisto/config.yml`
   ```yaml
   # 是否启用信使
   enable: true
@@ -39,8 +37,8 @@
     # 加密用使用的密钥 需保证各端相同
     key: default-key
   ```
-5. 启动fabric/forge服务端。
+5. 重启 fabric/forge 服务端。
 
 ## 注意事项
 
-1. 暂无
+1. 无论channel的值如何，只要保证各个转发客户端绑定的频道相同即可

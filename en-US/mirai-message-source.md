@@ -1,65 +1,90 @@
-# mirai消息源
-**[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的mirai(Tencent-QQ)实现。**
+# Mirai Message source
 
-## 安装
-  1. 在[Releases页面](https://github.com/MeowCat-Studio/mirai-message-source/releases) 下载jar归档文件。
-  2. 移动至mirai-console(或是mcl)同目录的plugins文件夹下。
-## 简单入门
-  1. 运行一次MCL并关闭
-  2. MCL目录下 找到配置文件 config/org.meowcat.mesagisto/mesagisto.yml 并修改
+** Mirai is used for the function implementation of [Mesagisto](https://github.com/MeowCat-Studio/mesagisto), and the function is to forward messages to the client (Tencent QQ)**
 
-  ```yaml
-  # 是否启用插件
-  enable: true
-  # 中间转发服务器,消息的桥梁. 默认为我个人提供的[NATS](https://github.com/nats-io/nats-server)服务器
-  nats:
-    address: 'nats://itsusinn.site:4222'
-  # 加密设置
-  cipher:
-    # 是否启用加密
-    enable: false
-    # 加密用使用的密钥
-    key: your-key
-    # 是否拒绝未经加密的消息
-    refuse-plain: true
-  # 网络代理, 下载Telegram或Discord图片时所需
-  # 注意, 如果tg-bot/dc-bot与mirai-bot在同一台主机
-  # 仅设置tg-bot/dc-bot的代理即可
-  proxy:
-    # 是否启用代理
-    enable: false
-    # 代理服务器地址
-    address: 'http://127.0.0.1:7890'
-  # 实验性权限配置
-  perm: 
-    # 严格模式, 当启用时
-    # 信使仅对下方users列表内用户所发命令作出响应
-    strict: false
-    # 用户列表, QQ号
-    users: 
-      - 123456
-  # 存放信使频道与QQ群的对应关系,默认为空. 不推荐手动添加.
-  bindings: {}
-  ```
-  
-  3. 群主 (**除了BOT自身**) 可以执行以下指令 `/f` 或 `/信使` 将会得到
-  ```
-          未知指令
-          ------  用法  ------
-          /信使 绑定 [频道名]
-          或 
-          /f bind [频道名]
-          例如
-          /f bind 114514、/信使 绑定 114514 等
-          ------  列表  ------
-          /f help = /信使 帮助
-          /f unbind = /信使 解绑
-          /f about = /信使 关于
-          /f status = /信使 状态
-  ```
-  任何管理员或群主可通过`/信使 设置频道 [频道名]`或`/f sc [频道名]`设置频道
 
-  > 在 **QQ 群聊**(而不是 Mirai 控制台)中发送这些指令.
-## 注意事项
-  1. 现在信使**不再依赖**前置插件[chat-command]
-  2. 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 和 [Microsoft Visual C++ 2015-2020 Redistributable运行时](https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) 运行时位数应与JDK保持一致
+## Requirement
+
+- Mirai 2.12.0+, MCL 2.1.0+
+
+- Front plugin [ChatCommand](https://github.com/project-mirai/chat-command)
+
+- For Windows, [Microsoft Visual C + + 2010 redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=26999) needs to be installed. The number of bits of runtime should be consistent with JDK
+
+
+!!! Warning
+    Mesagisto will automatically configure command permissions, please do not use permission command to operate Mesagisto permissions (because it will be reset every time you start)
+## Installation
+
+=== "Manual installations"
+
+	Download the jar archive on the [releases page](https://github.com/MeowCat-Studio/mirai-message-source/releases). Move to the plugins folder in the same directory of Mirai console (MCL).
+
+=== "MCL auto install - stable"
+
+	Using the MCL command `./mcl --update-package org.mesagisto:mirai-message-source --channel stable --type plugin`
+
+	Use every time you start `./mcl -u` to update
+=== "MCL auto install - pre"
+
+	Using the MCL command `./mcl --update-package org.mesagisto:mirai-message-source --channel pre-release --type plugin`
+
+	Use every time you start `./mcl -u` to update
+
+  Note: since the pre release version is only released on GitHub release, [GH-Proxy](https://ghproxy.com/) is used
+
+
+  However, access is still blocked in some regions. It is recommended to modify the MCL configuration file `config.json` Proxy options
+## Simple introduction
+
+1. Run MCL once and close it
+
+2. Find the configuration file config/org.mesagisto.mirai-message-source/config.yml and modify
+```yaml
+# Intermediate forwarding server, message bridge.
+# The default is Mesagisto commonweal [NATs](https://github.com/nats-io/nats-server) Server
+nats:
+  address: 'nats://nats.mesagisto.org:4222'
+# Encryption settings
+cipher:
+  # Key used for encryption
+  key: your-key
+# Network agent, required for downloading telegram or discord pictures
+# Note that if TGBot / DCBot and MiraiBot are on the same host
+# Just set the agent of TGBot / DCBot
+proxy:
+  # Enable agent
+  enable: false
+  # Proxy server address
+  address: 'http://127.0.0.1:7890'
+# Experimental options
+perm: 
+  # Strict mode, when enabled
+  # Mesagisto only responds to commands sent by users in the users list below
+  # When disabled, the Mesagisto will respond to the instructions sent by all users
+  # However, channel binding only allows administrators to operate
+  strict: false
+  # User list, QQ number
+  users: 
+    - 123456
+# Stores the correspondence between Mesagisto channel and QQ group. It is empty by default Manual addition is not recommended
+bindings: {}
+```
+
+3. In ** QQ group chat ** (instead of Mirai console), you can execute the following command ` /msgist` or `/信使`. You will get
+```text
+    The parameters do not match. Do you want to execute: 
+    /msgist about    (insufficient parameters)
+    /msgist ban <user>    (insufficient parameters)
+    /msgist bind <channel>    (insufficient parameters)
+    /msgist disable <group/channel>    (insufficient parameters)
+    /msgist enable <group/channel>    (insufficient parameters)
+    /msgist status    (insufficient parameters)
+    /msgist unban <user>    (insufficient parameters)
+    /msgist unbind    (insufficient parameters)
+```
+4. Use `/msgist bind channel `to bind to Mesagisto channel
+
+## Matters needing attention
+ 1. The message source to be forwarded needs to be bound to the same ** channel name **
+ 2. The blacklist function needs to be in strict mode

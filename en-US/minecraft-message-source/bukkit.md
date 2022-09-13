@@ -1,52 +1,42 @@
-# bukkit消息源
-**[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的bukkit(Minecraft)实现。**
+# Bukkit message source
 
-## 安装
+** The function of [Mesagisto](https://github.com/MeowCat-Studio/mesagisto) is to forward messages to the minecraft[bukkit] client **
 
-1. 在[Releases页面](https://github.com/MeowCat-Studio/bukkit-message-source/releases) 下载jar归档文件。
+## Requirement
 
-2. 将jar包移动至bukkit系服务端(如Spigot,Paper等)的plugins文件夹下。
+- For windows, [Microsoft Visual C++ 2010 Redistributable runtime](https://www.microsoft.com/en-us/download/details.aspx?id=26999) needs to be installed. The number of bits of runtime should be consistent with JDK
 
-3. 启动服务器,此时会自动生成配置文件。
+## Installation
 
-4. 修改plugins/mesagisto/config.yml，
-  参考
+1. Download the jar archive on the [Releases Page](https://github.com/MeowCat-Studio/bukkit-message-source/releases)
+
+2. Move the jar package to the plugins folder of the bukkit server (such as spigot, paper, etc.)
+
+3. Start the server, and the configuration file will be automatically generated under the plugins folder
+
+4. Modify `plugins/mesagisto/config.yml`
   ```yaml
-  # 是否启用信使
+  # Enable mesagisto
   enable: true
-  # 您的信使频道, 无论channel的值如何，
-  # 只要保证不同转发客户端channel的值相同即可
-  channel: test
-  id-base: 0
-  # 中间转发服务器,消息的桥梁.
-  # 默认为我个人提供的[NATS](https://github.com/nats-io/nats-server)服务器
+  # Your mesagisto channel, regardless of the value of channel,
+  # As long as the channel values of different forwarding clients are the same
+  channel: "your-channel"
+  # Targetname of the server. Group chat/servers with the same target will not display messages from each other
+  # This may be useful for those servers that have installed inter server message exchange
+  target: "target-name"
+  # Intermediate forwarding server, message bridge
+  # The default is mesagisto commonweal [NATs](https://github.com/nats-io/nats-server) Server
   nats:
-    address: nats://itsusinn.site:4222
-  # 加密设置
+    address: nats://nats.mesagisto.org:4222
+  # Encryption settings
   cipher:
-    # 加密用使用的密钥 需保证各端相同
-    key: your-key
+    # The key used for encryption shall be the same at each end
+    key: "your-key"
   ```
 
-5. 保存配置文件，重启bukkit服务端。
+5. Save the configuration file and restart the bukkit server
 
-## 注意事项
-1. 与InteractiveChat的兼容性问题,请编辑plugins/InteractiveChat/config.yml
-  找到
-  ```yaml
-  Settings:
-    Bungeecord: false
-    ChatListeningPlugins:
-      - "Plugin:QuickShop, Class:.*, EventPriority:LOWEST"
-      - "Plugin:Slimefun, Class:.*, EventPriority:LOWEST"
-  ```
-  在列表ChatListeningPlugins中添加`"Plugin:bukkit-message-source, Class:.*, EventPriority:LOWEST"`即
-  ```yaml
-  Settings:
-    Bungeecord: false
-    ChatListeningPlugins:
-      - "Plugin:QuickShop, Class:.*, EventPriority:LOWEST"
-      - "Plugin:Slimefun, Class:.*, EventPriority:LOWEST"
-      - "Plugin:bukkit-message-source, Class:.*, EventPriority:LOWEST"
-  ```
-2. 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999)
+## Matters needing attention
+
+1. Avoid using hot overload. If there is a problem, please restart manually first
+2. No matter what the value of channel is, as long as the channels bound by each forwarding client are the same

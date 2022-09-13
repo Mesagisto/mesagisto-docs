@@ -1,92 +1,72 @@
-# Telegram消息源
+# Telegram message source
 
-**[Mesagisto信使项目](https://github.com/MeowCat-Studio/mesagisto)的一部分，消息转发客户端的Telegram 实现。**
+** The function of [Mesagisto](https://github.com/MeowCat-Studio/mesagisto) is to forward messages to the telegram client **
 
-## 部署
+## Requirement
 
- 1. 在 [Release页面](https://github.com/MeowCat-Studio/telegram-message-source/releases)获取二进制文件(简称tms)。
- > 文件命名规则：tg-<操作系统>-<架构>
- >
- > 对于Windows用户而言, 可执行文件会带有no_color后缀，no_color版本的文件去除了终端的颜色代码，不会出现乱码。
- > 推荐没有MINGW终端的Winodws用户下载该版本
- 1. 确保tms在能稳定访问访问Telegram服务器的网络环境下（可能需要HTTP代理,详见本文档配置文件部分）。
+1. Bot should set group privacy mode to off at botfather, otherwise your bot will not be able to access group chat messages
 
- 2. 运行tms,自动生成默认配置文件`config/tg.yml`
+## Deploy
 
- 3. 编辑配置文件`config/tg.yml`。
+1. Get binary files on the [Release Page](https://github.com/MeowCat-Studio/telegram-message-source/releases)  (hereinafter referred to as TMS)
+!!! Note
 
-   示例:
-  ```yaml
-  ---
-  # 在使用前将 `enable` 改为 `true`.
+     File naming rules: TG-<schema>-<operating system>-<features>
+     Binary for Windows users, the executable file will have a colored suffix. The colored version of the file has the color code of the terminal, and there may be garbled code in PS (PowerShell).
+     It is recommended that Windows users with MinGW terminal download this version
+
+1. Ensure that TMS can access the telegram server in a stable network environment (HTTP proxy may be required, see the configuration file section of this document for details)
+
+2. Run TMS and automatically generate the default configuration file `config/tg.yml`
+
+3. Edit configuration file `config/tg.yml`
+```yaml
+# Change 'enable' to 'true' before use.
+enable: true
+# Intermediate forwarding server, message bridge.
+# The default is Mesagisto commonweal [Nats](https://github.com/nats-io/nats-server) Server
+nats:
+  address: "nats://nats.mesagisto.org:4222"
+# Encryption settings
+cipher:
+  # Key used for encryption
+  key: test
+telegram:
+  # Token key of TGBot, obtained from @botfather
+  token: "114514191:IYokoiYoT4YfU_NA9NzhS5HS5oT-oJTrE"
+proxy:
+  # Enable agent
   enable: true
-  # 中间转发服务器,消息的桥梁. 默认为我个人提供的[NATS](https://github.com/nats-io/nats-server)服务器
-  nats:
-    address: "nats://itsusinn.site:4222"
-  # 加密设置
-  cipher:
-    # 是否启用加密
-    enable: true
-    # 加密用使用的密钥
-    key: test
-    # 是否拒绝未经加密的消息
-    refuse_plain: true
-  telegram:
-    # TG Bot的token,于@BotFather处获取
-    token: "114514114:IYokoiYoT4YfU_NA9NzhS5HS5oT-oJTrE"
-    # TG Bot的id 即@username的username部分
-    bot_name: "mesagisto_test_bot"
-    webhook:
-      enable: false
-      heroku: false
-      port: 8889
-      host: heroku-app-name.herokuapp.com
-  proxy:
-    # 是否启用代理
-    enabled: true
-    # 现阶段仅允许http代理(reqwest库限制)
-    address: "http://127.0.0.1:7890"
-  # 存放信使频道与TG群组的对应关系,默认为空. 不推荐手动添加.
-  target_address_mapper: {}
-  ```
- 4. 启动tms:
- ```shell
- # 给予可执行权限
- $ chmod +x ./tms
- $ ./tms
-  INFO  telegram_message_source > Mesagisto-Bot is starting up
-  INFO  telegram_message_source > Connecting to nats server
-  INFO  telegram_message_source > Connected sucessfully,the client id is ***
- # 若要关闭tms,请使用Ctrl+C,切忌不平滑关闭
- $ ^C
-  INFO  teloxide::dispatching::dispatcher > ^C received, trying to shutdown the dispatcher...
-  INFO  teloxide::dispatching::dispatcher > Dispatching has been shut down.
-  INFO  telegram_message_source::config     > Configuration file was saved
-  INFO  telegram_message_source             > Mesagisto Bot is going to shut down
- ```
- 如果没有 [ERROR]输出, 你可以向bot发送 `/help` , 将会得到如下回复:
-```text
-信使Bot支持以下命令
-
-/about — 关于本项目
-/unbind — 解绑当前群组的转发地址
-/help — 显示命令帮助
-/status — 显示状态
-/bind — 绑定当前群组的转发地址
+  # Only HTTP proxy is allowed at this stage (reqwest library limit)
+  address: "http://127.0.0.1:7890"
+# Stores the correspondence between Mesagisto channel and TG group. It is empty by default Manual addition is not recommended.
+bindings: {}
 ```
- 5. 创建一个 Telegram 群组, 将bot添加至群组, 并在群组内输入指令:
 
- `/bind <channel>`
+5. Start TMS:
+```shell
+# Give executable permission
+$ chmod +x ./tms
+# Run
+$ ./tms
+# To turn off TMS, please use Ctrl + C. don't turn it off smoothly.
+$ ^C
+```
+If there is no [error] output, you can send `/help` to the Bot, and you will get the following reply:
+```
+Mesagisto BOT supports the following commands:
 
-> 此处channel的值为应设置的信使频道
->
-> 无论channel的值如何，只要保证不同转发客户端的值相同即可
+/about — About this project
+/unbind — Unbind the forwarding address of the current group
+/help — Display command help
+/status — Display status
+/bind — Bind the forwarding address of the current group
+```
 
+6. Create a telegram group, add BOT to the group, and input instructions in the group:
+`/bind <channel>`
 
+## Matters needing attention
 
-## 注意事项
-
-- 您的Bot应该在BotFather处将Group Privacy Mode设置为 OFF,否则Bot将无法访问群聊消息.
-- 变更Group Privacy Mode或是群组类型后,请将Bot移除出群组并重启.
-
-
+1. No matter what the value of channel is, as long as the channels bound by each forwarding client are the same
+2. After changing the group privacy mode halfway, please remove the BOT from the group and restart it

@@ -8,12 +8,11 @@
 
 - 前置插件[ChatCommand](https://github.com/project-mirai/chat-command)
 
-- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 位数应与JDK保持一致
 !!! Warning
     信使会自动配置指令权限, 请不要使用 Permission 命令操作信使的权限(因每次启动时会重置)
 ## 安装
 
-=== "手动安装"
+=== "手动安装/预发布安装"
 
 	在 [Releases页面](https://github.com/MeowCat-Studio/mirai-message-source/releases) 下载jar归档文件。 移至 mirai-console(mcl) 同目录下的plugins文件夹下
 
@@ -22,15 +21,6 @@
 	使用mcl命令 `./mcl --update-package org.mesagisto:mirai-message-source --channel stable --type plugin`
 
 	每次启动时使用`./mcl -u`更新即可
-=== "MCL自动安装 预发布"
-
-	使用mcl命令 `./mcl --update-package org.mesagisto:mirai-message-source --channel pre-release --type plugin`
-
-	每次启动时使用`./mcl -u`更新即可
-
-	注意: 由于预发行版仅发布在GitHub Release上, 所以使用了 [GH-Proxy](https://ghproxy.com/)
-
-	但在某些地区访问仍旧受阻,推荐修改 mcl 配置文件`config.json` 中 proxy代理选项
 
 ## 简单入门
 

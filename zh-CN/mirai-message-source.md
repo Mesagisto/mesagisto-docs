@@ -30,13 +30,14 @@
 ```yaml
 # 加密设置
 cipher:
-  # 加密用使用的密钥
+  # 加密用使用的密钥 需保证各端相同
   key: your-key
 # 网络代理, 下载Telegram或Discord图片时所需
 # 注意, 如果tg-bot/dc-bot与mirai-bot在同一台主机
 # 仅设置tg-bot/dc-bot的代理即可
 proxy:
-  # 是否启用代理
+  # 是否启用代理、
+  # 如无Telegram或Discord，false即可
   enable: false
   # 代理服务器地址
   address: 'http://127.0.0.1:7890'

@@ -28,10 +28,6 @@
 
 2. 在 MCL 目录下 找到配置文件 config/org.mesagisto.mirai-message-source/config.yml 并修改
 ```yaml
-# 中间转发服务器,消息的桥梁.
-# 默认为信使公益[NATS](https://github.com/nats-io/nats-server)服务器
-nats:
-  address: 'nats://nats.mesagisto.org:4222'
 # 加密设置
 cipher:
   # 加密用使用的密钥

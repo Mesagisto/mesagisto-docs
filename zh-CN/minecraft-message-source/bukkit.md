@@ -2,10 +2,6 @@
 
 ** [Mesagisto 信使](https://github.com/MeowCat-Studio/mesagisto) 的功能实现，功能为转发消息到 Minecraft[Bukkit] 客户端 **
 
-## 需求
-
-- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable 运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时的位数应与JDK保持一致
-
 ## 安装
 
 1. 在[Releases页面](https://github.com/MeowCat-Studio/bukkit-message-source/releases) 下载 jar 归档文件
@@ -24,10 +20,6 @@
   # 服务器的TargetName, 具有相同Target的群聊/服务器不会显示彼此的消息
   # 这对于那些安装了子服间消息互通的服务器可能很有用
   target: "target-name"
-  # 中间转发服务器,消息的桥梁.
-  # 默认为信使公益[NATS](https://github.com/nats-io/nats-server)服务器
-  nats:
-    address: nats://nats.mesagisto.org:4222
   # 加密设置
   cipher:
     # 加密用使用的密钥 需保证各端相同

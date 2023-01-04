@@ -18,7 +18,7 @@
 
 === "MCL自动安装 稳定版"
 
-	使用mcl命令 `./mcl --update-package org.mesagisto:mirai-message-source --channel stable --type plugin`
+	使用mcl命令 `./mcl --update-package org.mesagisto:mirai-message-source --channel maven --type plugin`
 
 	每次启动时使用`./mcl -u`更新即可
 

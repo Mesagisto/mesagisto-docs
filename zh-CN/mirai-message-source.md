@@ -12,7 +12,7 @@
     信使会自动配置指令权限, 请不要使用 Permission 命令操作信使的权限(因每次启动时会重置)
 ## 安装
 
-=== "手动安装/预发布安装"
+=== "手动安装"
 
 	在 [Releases页面](https://github.com/MeowCat-Studio/mirai-message-source/releases) 下载jar归档文件。 移至 mirai-console(mcl) 同目录下的plugins文件夹下
 
@@ -21,6 +21,17 @@
 	使用mcl命令 `./mcl --update-package org.mesagisto:mirai-message-source --channel maven --type plugin`
 
 	每次启动时使用`./mcl -u`更新即可
+
+=== "MCL自动安装 最新"
+
+	使用mcl命令 `./mcl --update-package org.mesagisto:mirai-message-source --channel latest --type plugin`
+
+	每次更新时需要删掉plugins内 mesagisto.mirai2.jar 才能更新到最新版
+
+	注意: 由于最新版仅发布在GitHub Release上, 所以使用了 [GH-Proxy](https://ghproxy.com/)
+
+	但在某些地区访问仍旧受阻,如无法访问可修改 mcl 配置文件`config.json` 中 proxy代理选项
+
 
 ## 简单入门
 

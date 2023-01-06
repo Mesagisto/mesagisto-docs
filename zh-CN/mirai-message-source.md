@@ -26,7 +26,7 @@
 
 	使用mcl命令 `./mcl --update-package org.mesagisto:mirai-message-source --channel latest --type plugin`
 
-	每次更新时需要删掉plugins内 mesagisto.mirai2.jar 才能更新到最新版
+	每次更新时需要删掉plugins内 mirai-message-source-latest.mirai2.jar 才能更新到最新版
 
 	注意: 由于最新版仅发布在GitHub Release上, 所以使用了 [GH-Proxy](https://ghproxy.com/)
 

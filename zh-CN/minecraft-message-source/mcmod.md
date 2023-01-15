@@ -27,10 +27,6 @@
   # 服务器的TargetName, 具有相同Target的群聊/服务器不会显示彼此的消息
   # 这对于那些安装了子服间消息互通的服务器可能很有用
   target: "target-name"
-  # 中间转发服务器,消息的桥梁.
-  # 默认为信使公益[NATS](https://github.com/nats-io/nats-server)服务器
-  nats:
-    address: nats://nats.mesagisto.org:4222
   # 加密设置
   cipher:
     # 加密用使用的密钥 需保证各端相同

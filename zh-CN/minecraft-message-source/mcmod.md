@@ -7,6 +7,7 @@
 === "Fabric 1.16-1.19"
 
 	- 前置依赖 [Fabric-API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) 任意版本
+	- 前置依赖 [fabric-language-kotlin](https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin) 最新版
 
 === "Forge1.18"
 

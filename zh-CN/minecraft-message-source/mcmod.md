@@ -6,12 +6,11 @@
 
 === "Fabric 1.16-1.19"
 
-	- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时位数应与JDK保持一致
 	- 前置依赖 [Fabric-API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) 任意版本
 
 === "Forge1.18"
 
-	- 对于Windows, 需要安装 [Microsoft Visual C++ 2010 Redistributable运行时](https://www.microsoft.com/en-us/download/details.aspx?id=26999) 运行时的位数应与 JDK 保持一致
+	- 前置依赖 [KotlinForForge](https://www.curseforge.com/minecraft/mc-mods/kotlin-for-forge)
 
 ## 安装
 

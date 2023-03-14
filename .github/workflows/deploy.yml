@@ -20,8 +20,7 @@ jobs:
     - name: Mkdocs build zh-CN
       run: |
         mkdocs build -f mkdocs.zh-CN.yml
-        cp -r site static/zh-CN
-        mv site static/
+        mv site static/zh-CN
       env:
         GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
 

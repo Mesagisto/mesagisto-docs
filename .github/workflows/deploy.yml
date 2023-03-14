@@ -1,4 +1,4 @@
-name: deploy
+Hiname: deploy
 on:
   push:
     branches:
@@ -20,7 +20,8 @@ jobs:
     - name: Mkdocs build zh-CN
       run: |
         mkdocs build -f mkdocs.zh-CN.yml
-        mv site static/zh-CN
+        cp -r site static/zh-CN
+        mv site static/
       env:
         GOOGLE_ANALYTICS_KEY: ${{ secrets.GOOGLE_ANALYTICS_KEY }}
 

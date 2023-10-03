@@ -18,19 +18,23 @@
 
 === "MCL自动安装 稳定版"
 
-	使用mcl命令 `./mcl --update-package org.mesagisto:mirai-message-source --channel maven --type plugin`
+	使用mcl命令 `./mcl -a org.mesagisto:mirai-message-source -n maven --type plugin`
 
 	每次启动时使用`./mcl -u`更新即可
+ 
+        使用mcl命令 `./mcl -r org.mesagisto:mirai-message-source` 卸载
 
 === "MCL自动安装 最新"
 
-	使用mcl命令 `./mcl --update-package org.mesagisto:mirai-message-source --channel latest --type plugin`
+	使用mcl命令 `./mcl -a org.mesagisto:mirai-message-source -n latest --type plugin`
 
 	每次更新时需要删掉plugins内 mirai-message-source-latest.mirai2.jar 才能更新到最新版
 
 	注意: 由于最新版仅发布在GitHub Release上, 所以使用了 [GH-Proxy](https://ghproxy.com/)
 
 	但在某些地区访问仍旧受阻,如无法访问可修改 mcl 配置文件`config.json` 中 proxy代理选项
+ 
+        使用mcl命令 `./mcl -r org.mesagisto:mirai-message-source` 卸载
 
 
 ## 简单入门
